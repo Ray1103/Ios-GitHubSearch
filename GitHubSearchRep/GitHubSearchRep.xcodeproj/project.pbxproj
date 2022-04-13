@@ -24,6 +24,8 @@
 		146D8875280682CB00CF5B08 /* searchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146D8874280682CB00CF5B08 /* searchModel.swift */; };
 		146D88772806957800CF5B08 /* searchCollectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146D88762806957800CF5B08 /* searchCollectCell.swift */; };
 		146D88792806998300CF5B08 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146D88782806998300CF5B08 /* CardView.swift */; };
+		146D887B2806C67700CF5B08 /* searchFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146D887A2806C67700CF5B08 /* searchFooter.swift */; };
+		146D887D2806D43300CF5B08 /* .gitattributes in Resources */ = {isa = PBXBuildFile; fileRef = 146D887C2806D43300CF5B08 /* .gitattributes */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		146D8874280682CB00CF5B08 /* searchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchModel.swift; sourceTree = "<group>"; };
 		146D88762806957800CF5B08 /* searchCollectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchCollectCell.swift; sourceTree = "<group>"; };
 		146D88782806998300CF5B08 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		146D887A2806C67700CF5B08 /* searchFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchFooter.swift; sourceTree = "<group>"; };
+		146D887C2806D43300CF5B08 /* .gitattributes */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitattributes; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,7 @@
 		146D882628067D2600CF5B08 = {
 			isa = PBXGroup;
 			children = (
+				146D887C2806D43300CF5B08 /* .gitattributes */,
 				146D883128067D2600CF5B08 /* GitHubSearchRep */,
 				146D884828067D2700CF5B08 /* GitHubSearchRepTests */,
 				146D885228067D2700CF5B08 /* GitHubSearchRepUITests */,
@@ -152,6 +157,7 @@
 			children = (
 				146D886528067DD900CF5B08 /* MainView.swift */,
 				146D88762806957800CF5B08 /* searchCollectCell.swift */,
+				146D887A2806C67700CF5B08 /* searchFooter.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -301,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				146D883F28067D2700CF5B08 /* LaunchScreen.storyboard in Resources */,
+				146D887D2806D43300CF5B08 /* .gitattributes in Resources */,
 				146D883C28067D2700CF5B08 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -332,6 +339,7 @@
 				146D88722806827C00CF5B08 /* searchApi.swift in Sources */,
 				146D883528067D2600CF5B08 /* SceneDelegate.swift in Sources */,
 				146D88772806957800CF5B08 /* searchCollectCell.swift in Sources */,
+				146D887B2806C67700CF5B08 /* searchFooter.swift in Sources */,
 				146D886628067DD900CF5B08 /* MainView.swift in Sources */,
 				146D886F2806810900CF5B08 /* UIColorExt.swift in Sources */,
 				146D886328067DAF00CF5B08 /* MainViewController.swift in Sources */,

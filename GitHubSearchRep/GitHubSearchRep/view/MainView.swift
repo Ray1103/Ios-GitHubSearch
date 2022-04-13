@@ -68,9 +68,17 @@ class MainView: UIView {
         return collect
     }()
     
+    let divView : UIView = {
+        let view = UIView()
+        view.backgroundColor = .lightGray
+        view.isHidden = true
+        return view
+    }()
+    
     func setViews(){
         addSubview(search)
         addSubview(sendButton)
+        addSubview(divView)
         addSubview(searchTable)
     }
     
@@ -88,8 +96,15 @@ class MainView: UIView {
             make.trailing.equalTo(sendButton.snp.leading).offset(-5)
             make.height.equalTo(40)
         }
-        searchTable.snp.makeConstraints { make in
+        
+        divView.snp.makeConstraints { make in
             make.top.equalTo(search.snp.bottom).offset(10)
+            make.leading.equalTo(self).offset(10)
+            make.trailing.equalTo(self).offset(-10)
+            make.height.equalTo(1)
+        }
+        searchTable.snp.makeConstraints { make in
+            make.top.equalTo(divView.snp.bottom).offset(10)
             make.leading.trailing.bottom.equalTo(self)
         }
     }

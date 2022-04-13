@@ -14,7 +14,7 @@ class MainViewController: UIViewController {
     var data : searchRes? {
         didSet{
             mainview.searchTable.reloadData()
-            print(data?.items[0].full_name)
+            mainview.divView.isHidden = false
         }
     }
 
@@ -52,6 +52,7 @@ extension MainViewController : UICollectionViewDelegate,UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: searchCollectCell.Identifier, for: indexPath) as! searchCollectCell
         
+        
         guard let _d = data else {return cell}
         cell.descriptionLabel.text = _d.items[indexPath.row].description ?? "No Description "
         
@@ -65,6 +66,33 @@ extension MainViewController : UICollectionViewDelegate,UICollectionViewDataSour
         cell.name.text = _d.items[indexPath.row].full_name
         return cell
     }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath.row)
+    }
+    
+    
+    
+    var isloadMore : Bool {
+        let maxVisibleY = mainview.searchTable.bounds.height + mainview.searchTable.contentOffset.y
+        
+        let actualMaxY = mainview.searchTable.contentSize.height + mainview.searchTable.contentInset.bottom
+        
+        return maxVisibleY >= actualMaxY
+
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if isloadMore {
+            print("need more data")
+        }
+    }
+    
+    
+    
+    
+    
     
     
     

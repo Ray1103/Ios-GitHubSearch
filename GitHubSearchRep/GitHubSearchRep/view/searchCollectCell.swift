@@ -42,7 +42,6 @@ class searchCollectCell: UICollectionViewCell {
             make.leading.equalTo(cardView).offset(10)
             make.trailing.equalTo(type.snp.leading)
             make.height.equalTo(25)
-            make.width.equalTo(100)
         }
         descriptionLabel.snp.makeConstraints { make in
             make.top.equalTo(name.snp.bottom).offset(0)
