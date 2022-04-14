@@ -23,21 +23,21 @@ class searchFooter: UICollectionReusableView {
     }
     
     
-    let divView : UIView = {
-        let view = UIView()
-        view.backgroundColor = .lightGray
-        return view
+    let loadView : UIActivityIndicatorView = {
+        let load = UIActivityIndicatorView(style: .large)
+        load.startAnimating()
+        return load
     }()
     func setViews(){
-        addSubview(divView)
+        addSubview(loadView)
     }
     
     func setLayouts(){
-        divView.snp.makeConstraints { make in
-            make.leading.equalTo(self).offset(5)
-            make.trailing.equalTo(self).offset(-5)
-            make.centerY.equalTo(self)
-            make.height.equalTo(1)
+        loadView.snp.makeConstraints { make in
+            make.centerX.equalTo(self)
+            make.height.equalTo(20)
+            make.width.equalTo(20)
+            make.top.equalTo(self).offset(20)
         }
     }
 

@@ -11,7 +11,7 @@ import Foundation
 struct searchRes : Decodable {
     let total_count : Int
     let incomplete_results : Bool
-    let items : Array<searchDetail>
+    var items : Array<searchDetail>
 }
 
 struct searchDetail : Decodable {

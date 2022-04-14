@@ -10,11 +10,18 @@ import UIKit
 class MainViewController: UIViewController {
     
     let mainview = MainView()
+    var key = ""
+    var page = 1
     
     var data : searchRes? {
         didSet{
             mainview.searchTable.reloadData()
             mainview.divView.isHidden = false
+            
+            mainview.loadView.stopAnimating()
+            mainview.loadView.snp.updateConstraints { make in
+                make.height.equalTo(0)
+            }
         }
     }
 
@@ -33,9 +40,10 @@ class MainViewController: UIViewController {
     
     @objc func searchEdit(_ q : String?){
         guard let text = q, !text.isEmpty else {return}
+        key = text
         Task{
             do{
-                data = try await callSearch(text)
+                data = try await callSearch(key,String(describing: page))
             }catch{
                 print(error)
             }
@@ -83,9 +91,35 @@ extension MainViewController : UICollectionViewDelegate,UICollectionViewDataSour
 
     }
     
+    
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if isloadMore {
-            print("need more data")
+        if isloadMore && mainview.loadView.isHidden{
+            loadMore()
+        }
+    }
+    
+    
+    private func loadMore(){
+        showLoadView()
+        page += 1
+        print(page)
+        Task{
+            do{
+                
+                let _d = try await callSearch(key,String(describing: page))
+                data?.items.append(contentsOf: _d.items)
+                
+            }catch{
+                print(error)
+            }
+        }
+    }
+    
+    private func showLoadView(){
+        mainview.loadView.startAnimating()
+        mainview.loadView.snp.updateConstraints { make in
+            make.height.equalTo(50)
         }
     }
     

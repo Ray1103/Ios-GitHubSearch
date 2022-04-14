@@ -65,6 +65,8 @@ class MainView: UIView {
         let width  = UIScreen.main.bounds.width
         flowLayout.minimumLineSpacing = CGFloat(integerLiteral: 10)
         flowLayout.itemSize = CGSize(width: width, height: 60)
+//        collect.register(searchFooter.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: searchFooter.Identifier)
+//        flowLayout.footerReferenceSize = CGSize(width: 20, height: 150)
         return collect
     }()
     
@@ -75,11 +77,18 @@ class MainView: UIView {
         return view
     }()
     
+    let loadView : UIActivityIndicatorView = {
+        let load = UIActivityIndicatorView(style: .large)
+        load.stopAnimating()
+        return load
+    }()
+    
     func setViews(){
         addSubview(search)
         addSubview(sendButton)
         addSubview(divView)
         addSubview(searchTable)
+        addSubview(loadView)
     }
     
     func setLayouts(){
@@ -105,7 +114,15 @@ class MainView: UIView {
         }
         searchTable.snp.makeConstraints { make in
             make.top.equalTo(divView.snp.bottom).offset(10)
-            make.leading.trailing.bottom.equalTo(self)
+            make.leading.trailing.equalTo(self)
+            make.bottom.equalTo(loadView.snp.top)
+        }
+        
+        loadView.snp.makeConstraints { make in
+            make.centerX.equalTo(self)
+            make.bottom.equalTo(self)
+            make.width.equalTo(10)
+            make.height.equalTo(0)
         }
     }
 

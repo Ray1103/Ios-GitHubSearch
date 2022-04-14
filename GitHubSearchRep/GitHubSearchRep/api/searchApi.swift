@@ -8,7 +8,7 @@
 import Foundation
 
 let baseURL  = "https://api.github.com/search"
-func callSearch(_ q : String) async throws -> searchRes{
+func callSearch(_ q : String,_ page : String) async throws -> searchRes{
     let url = URL(string:"\(baseURL)/repositories?q=\(q)&page=1")!
     var request = URLRequest(url: url)
     request.httpMethod = "get"
